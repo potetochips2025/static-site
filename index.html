@@ -51,7 +51,7 @@ details{background:var(--cd);border:1px solid var(--cl);border-radius:12px;paddi
 .card i.n{font-weight:800;color:var(--ac)}
 .mq{overflow:hidden}.mt{display:flex;gap:56px;width:max-content;animation:mq 24s linear infinite}.mt span{font-weight:800;font-size:22px;opacity:.55;letter-spacing:.08em}
 @keyframes mq{to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.mt{animation:none}}
+
 .blk.ts{text-shadow:0 2px 14px rgba(0,0,0,.55)}
 .btn{transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px color-mix(in srgb,var(--ac) 45%,transparent)}
 .card{transition:transform .25s,border-color .25s}.card:hover{transform:translateY(-4px)}
@@ -96,16 +96,16 @@ nav.open .links{max-height:360px;opacity:1;padding:8px 0}}
 if(e.matches('.stat b')){const t=e.textContent,m=t.match(/[\d.]+/);if(!m)return;e.dataset.o=t;const n=parseFloat(m[0]),d=(m[0].split('.')[1]||'').length,p=t.slice(0,m.index),q=t.slice(m.index+m[0].length),t0=performance.now();(function f(w){const k=Math.min(1,(w-t0)/1400);e.textContent=p+(n*(1-Math.pow(1-k,3))).toFixed(d)+q;if(k<1)requestAnimationFrame(f);else delete e.dataset.o})(t0)}else e.classList.add('in')}),{threshold:.2});
 r.querySelectorAll('.card,.stat,.vis,details,.stat b,.blk[data-an]').forEach(e=>{e.classList.remove('in');io.observe(e)});
 if(typeof BLD=='undefined')r.addEventListener('click',e=>{const b=e.target.closest('.burger');if(b)b.closest('nav').classList.toggle('open')});const sc=r.parentNode&&r.parentNode.id=='stage'?r.parentNode:window,f=()=>{if(typeof BLD!='undefined'&&!document.body.classList.contains('pv'))return;const y=sc==window?window.scrollY:sc.scrollTop;r.querySelectorAll('.nv').forEach(n=>n.classList.toggle('sc',y>20))};sc.addEventListener('scroll',f,{passive:true});f();return io})(document);(function(r){const ids=[];r.querySelectorAll('.mq[data-src]').forEach(m=>{const src=m.dataset.src;if(!src||src=='demo')return;
-const S=(m.dataset.sym||'').split(',').map(x=>x.trim()).filter(Boolean),key=m.dataset.key||'',gp=(o,p)=>p.split('.').reduce((a,k)=>a==null?a:a[k],o),J=u=>fetch(u).then(x=>x.json()),lab=s=>src=='binance'?(s=='PAXGUSDT'?'GOLD':s.replace(/USDT$/,'')):s;
-const put=(s,p,c)=>{if(p==null||isNaN(p))return;const up=!(c<0);m.dataset.live=1;m.querySelectorAll('[data-s="'+s+'"]').forEach(e=>{e.textContent=lab(s)+' '+(+p).toLocaleString(undefined,{maximumFractionDigits:p<10?4:2})+(c==null||isNaN(c)?'':(up?' ▲ ':' ▼ ')+Math.abs(c).toFixed(2)+'%');e.className=c==null||isNaN(c)?'':up?'up2':'dn2'})};
+const S=(m.dataset.sym||'').split(',').map(x=>x.trim()).filter(Boolean),key=m.dataset.key||'',gp=(o,p)=>p.split('.').reduce((a,k)=>a==null?a:a[k],o),J=u=>fetch(u).then(x=>x.json()),bh='',BH=['https://data-api.binance.vision','https://api.binance.com','https://api1.binance.com','https://api2.binance.com','https://api3.binance.com','https://api4.binance.com'],lab=s=>src=='binance'?(s=='PAXGUSDT'?'GOLD':s.replace(/USDT$/,'')):s;
+const put=(s,p,c)=>{if(p==null||isNaN(p))return;const up=!(c<0);m.dataset.live=1;m.querySelectorAll('[data-s="'+s+'"]').forEach(e=>{const o=e._p;e._p=p;if(o!=null&&o!==p&&e.animate){try{e.animate([{backgroundColor:p>o?'rgba(34,197,94,.45)':'rgba(239,68,68,.45)'},{backgroundColor:'rgba(0,0,0,0)'}],{duration:1100,easing:'ease-out'})}catch(x){}}e.textContent=lab(s)+' '+(+p).toLocaleString(undefined,{maximumFractionDigits:p<10?4:2})+(c==null||isNaN(c)?'':(up?' ▲ ':' ▼ ')+Math.abs(c).toFixed(2)+'%');e.className=c==null||isNaN(c)?'':up?'up2':'dn2'})};
 const run=async()=>{try{
-if(src=='binance')(await J('https://data-api.binance.vision/api/v3/ticker/24hr?symbols='+encodeURIComponent(JSON.stringify(S)))).forEach(d=>put(d.symbol,+d.lastPrice,+d.priceChangePercent));
+if(src=='binance'){let r=null;for(const h of(bh?[bh]:[]).concat(BH)){try{const x=await fetch(h+'/api/v3/ticker/24hr?symbols='+encodeURIComponent(JSON.stringify(S)));if(!x.ok)throw 0;r=await x.json();bh=h;break}catch(e){if(h==bh)bh=''}}if(r)r.forEach(d=>put(d.symbol,+d.lastPrice,+d.priceChangePercent))}
 else if(src=='coingecko'){const d=await J('https://api.coingecko.com/api/v3/simple/price?ids='+S.join(',')+'&vs_currencies=usd&include_24hr_change=true');S.forEach(s=>d[s]&&put(s,d[s].usd,d[s].usd_24h_change))}
 else if(src=='twelvedata'){const d=await J('https://api.twelvedata.com/quote?symbol='+S.join(',')+'&apikey='+key);S.forEach(s=>{const q=S.length>1?d[s]:d;q&&put(s,+q.close,+q.percent_change)})}
 else if(src=='finnhub')await Promise.all(S.map(async s=>{const q=await J('https://finnhub.io/api/v1/quote?symbol='+s+'&token='+key);put(s,q.c,q.dp)}));
 else if(src=='custom')await Promise.all(S.map(async s=>{const q=await J((m.dataset.url||'').replace('{sym}',encodeURIComponent(s)));put(s,+gp(q,m.dataset.pp||'price'),m.dataset.cp?+gp(q,m.dataset.cp):null)}))
 }catch(e){}};
-run();ids.push(setInterval(run,Math.max(10,+m.dataset.int||60)*1000))});return ids})(document);(function(){const P=[...document.querySelectorAll('.page')];if(!P.length)return;
+run();ids.push(setInterval(run,Math.max(5,+m.dataset.int||15)*1000))});return ids})(document);(function(){const P=[...document.querySelectorAll('.page')];if(!P.length)return;
 const show=s=>{const g=P.find(p=>p.dataset.slug==s)||P[0];P.forEach(p=>p.classList.toggle('on',p==g));document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('act',a.getAttribute('href')=='#/'+g.dataset.slug));document.querySelectorAll('nav.open').forEach(n=>n.classList.remove('open'));if(g.dataset.t)document.title=g.dataset.t;window.scrollTo(0,0)};
 const go=()=>{const h=location.hash;if(h.indexOf('#/')==0)show(h.slice(2));else if(!document.querySelector('.page.on'))show(P[0].dataset.slug)};
 addEventListener('hashchange',go);
