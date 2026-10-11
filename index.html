@@ -183,32 +183,35 @@ body{top:0!important}iframe.skiptranslate,.goog-te-banner-frame,.goog-te-balloon
 @container (max-width:760px){.nv[data-isl].sc nav{border-radius:26px;padding:7px 8px 7px 18px;max-width:calc(100% - 4px)}.nv[data-isl] nav{min-height:48px}.nv[data-isl] .links a{padding:9px 12px}.blk.nv[data-isl]{padding:10px 3%}}
 /* island v2: tiny logo-only pill, expands on hover */
 .nv[data-isl].sc nav{max-width:min(210px,calc(100% - 8px));padding:6px 22px;justify-content:center;transition:max-width .65s cubic-bezier(.34,1.3,.5,1),padding .45s ease,border-radius .5s ease,background-color .45s ease,border-color .45s ease,box-shadow .5s ease}
-.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:focus-within{max-width:min(780px,calc(100% - 8px));padding:6px 8px 6px 22px;justify-content:flex-start}
-.nv[data-isl].sc .logo{margin-right:0}.nv[data-isl].sc nav:hover .logo,.nv[data-isl].sc nav:focus-within .logo{margin-right:auto}
+.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true]){max-width:min(780px,calc(100% - 8px));padding:6px 8px 6px 22px;justify-content:flex-start}
+.nv[data-isl].sc .logo{margin-right:0}.nv[data-isl].sc nav:hover .logo,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true]) .logo{margin-right:auto}
 @container (min-width:761px){
 .nv[data-isl].sc nav>.links,.nv[data-isl].sc nav>.btn,.nv[data-isl].sc nav>.lgp,.nv[data-isl].sc nav>.burger{max-width:0;opacity:0;overflow:hidden;padding-left:0;padding-right:0;margin-left:0;margin-right:0;border-width:0;white-space:nowrap;pointer-events:none;transition:max-width .5s ease,opacity .18s ease,padding .4s ease,margin .4s ease}
-.nv[data-isl].sc nav:hover>.links,.nv[data-isl].sc nav:hover>.btn,.nv[data-isl].sc nav:hover>.lgp,.nv[data-isl].sc nav:focus-within>.links,.nv[data-isl].sc nav:focus-within>.btn,.nv[data-isl].sc nav:focus-within>.lgp{opacity:1;pointer-events:auto;overflow:visible;transition:max-width .6s ease .05s,opacity .35s ease .22s,padding .4s ease,margin .4s ease}
-.nv[data-isl].sc nav:hover>.links,.nv[data-isl].sc nav:focus-within>.links{max-width:560px}.nv[data-isl].sc nav:hover>.btn,.nv[data-isl].sc nav:focus-within>.btn{max-width:220px;padding:8px 16px;margin-left:6px}.nv[data-isl].sc nav:hover>.lgp,.nv[data-isl].sc nav:focus-within>.lgp{max-width:140px;margin-left:6px}
+.nv[data-isl].sc nav:hover>.links,.nv[data-isl].sc nav:hover>.btn,.nv[data-isl].sc nav:hover>.lgp,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true])>.links,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true])>.btn,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true])>.lgp{opacity:1;pointer-events:auto;overflow:visible;transition:max-width .6s ease .05s,opacity .35s ease .22s,padding .4s ease,margin .4s ease}
+.nv[data-isl].sc nav:hover>.links,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true])>.links{max-width:560px}.nv[data-isl].sc nav:hover>.btn,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true])>.btn{max-width:220px;padding:8px 16px;margin-left:6px}.nv[data-isl].sc nav:hover>.lgp,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true])>.lgp{max-width:140px;margin-left:6px}
 .nv[data-isl] .links a{white-space:nowrap}
 .nv[data-isl].sc nav>.burger{display:none}}
-@container (max-width:760px){.nv[data-isl].sc nav,.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:focus-within{max-width:min(250px,calc(100% - 8px));padding:6px 8px 6px 20px;justify-content:space-between}.nv[data-isl].sc nav.open{max-width:calc(100% - 8px)}.nv[data-isl].sc .logo,.nv[data-isl].sc nav:hover .logo{margin-right:auto}}
+@container (max-width:760px){.nv[data-isl].sc nav,.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true]){max-width:min(250px,calc(100% - 8px));padding:6px 8px 6px 20px;justify-content:space-between}.nv[data-isl].sc nav.open{max-width:calc(100% - 8px)}.nv[data-isl].sc .logo,.nv[data-isl].sc nav:hover .logo{margin-right:auto}}
 /* island v3: single row, globe next to logo, no duplicate bars */
 .nv[data-isl] nav{flex-wrap:nowrap;row-gap:0}
 .nv[data-isl] nav>.logo{order:0;flex:none}.nv[data-isl] nav>.lgp{order:1;flex:none;margin-left:12px}.nv[data-isl] nav>.links{order:2}.nv[data-isl] nav>.btn{order:3}.nv[data-isl] nav>.burger{order:4}
 .nv[data-isl] .lgl{right:auto;left:0}.lgb span{display:inline-block}.nv[data-isl] nav>.logo,.nv[data-isl].sc nav>.logo{margin-right:0}
 .nv[data-isl] nav>.links{margin-left:auto}
 @container (min-width:761px){
-.nv[data-isl].sc nav,.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:focus-within{justify-content:flex-start}
+.nv[data-isl].sc nav,.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true]){justify-content:flex-start}
 .nv[data-isl].sc nav{max-width:min(250px,calc(100% - 8px));padding:6px 14px 6px 22px}
-.nv[data-isl].sc nav>.lgp,.nv[data-isl].sc nav:hover>.lgp,.nv[data-isl].sc nav:focus-within>.lgp{max-width:none;opacity:1;overflow:visible;pointer-events:auto;margin-left:12px;transition:none}
-.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:focus-within{max-width:min(800px,calc(100% - 8px));padding:6px 8px 6px 22px}
+.nv[data-isl].sc nav>.lgp,.nv[data-isl].sc nav:hover>.lgp,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true])>.lgp{max-width:none;opacity:1;overflow:visible;pointer-events:auto;margin-left:12px;transition:none}
+.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true]){max-width:min(800px,calc(100% - 8px));padding:6px 8px 6px 22px}
 .nv[data-isl].sc nav .logo,.nv[data-isl].sc nav:hover .logo{margin-right:0}
-.nv[data-isl].sc nav:hover>.links,.nv[data-isl].sc nav:focus-within>.links{margin-left:auto}}
+.nv[data-isl].sc nav:hover>.links,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true])>.links{margin-left:auto}}
 @container (max-width:760px){
-.nv[data-isl].sc nav>.lgp{margin-right:auto}.nv[data-isl].sc nav,.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:focus-within{max-width:min(336px,calc(100% - 8px));gap:8px;justify-content:flex-start}.nv[data-isl] nav>.lgp{margin-left:10px}.nv[data-isl] nav>.burger{flex:none;margin-left:0}
+.nv[data-isl].sc nav>.lgp{margin-right:auto}.nv[data-isl].sc nav,.nv[data-isl].sc nav:hover,.nv[data-isl].sc nav:has(:focus-visible,.lgb[aria-expanded=true]){max-width:min(336px,calc(100% - 8px));gap:8px;justify-content:flex-start}.nv[data-isl] nav>.lgp{margin-left:10px}.nv[data-isl] nav>.burger{flex:none;margin-left:0}
 .nv[data-isl].sc nav.open{max-width:calc(100% - 8px);flex-wrap:wrap}.nv[data-isl].sc nav.open>.links{order:5;width:100%}
 .nv[data-isl]:not(.sc) nav>.lgp{margin-right:auto}.nv[data-isl] nav>.links{margin-left:0}.nv[data-isl] nav.open{flex-wrap:wrap}}
 .site.anim:has(.nv[data-isl]) .blk.nv:not([data-isl]){display:none}
+/* island v4: short hover-intent delay so the globe never slides away from a quick click */
+@container (min-width:761px){
+.nv[data-isl].sc nav:hover{transition:max-width .65s cubic-bezier(.34,1.3,.5,1) .22s,padding .45s ease .22s,border-radius .5s ease,background-color .45s ease,border-color .45s ease,box-shadow .5s ease}}
 .sndbtn{position:fixed;left:14px;bottom:14px;z-index:70;width:40px;height:40px;border-radius:50%;border:1px solid var(--cl);background:var(--cd);color:var(--tx);font-size:18px;line-height:1;cursor:pointer;padding:0;box-shadow:0 4px 16px rgba(0,0,0,.25)}.sndbtn:hover{border-color:var(--ac)}
 .mq[data-live]::before{content:"● LIVE";display:block;text-align:center;font-size:10px;font-weight:700;letter-spacing:.12em;color:#22c55e;margin-bottom:6px}
 .up2{color:#22c55e}.dn2{color:#ef4444}.mt .up2,.mt .dn2{opacity:.95}
@@ -678,7 +681,7 @@ const miss=manual(l);dir(l);if(!pv)document.documentElement.setAttribute('lang',
 const mk=()=>{const w=document.createElement('div');w.className='lgp notranslate';w.setAttribute('translate','no');
 w.innerHTML='<button type="button" class="lgb" aria-haspopup="true" aria-expanded="false" aria-label="Language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"/></svg><span></span></button><div class="lgl" hidden>'+c.ls.map(x=>'<button type="button" data-l="'+x.c+'">'+x.n+'</button>').join('')+(pv?'<div class="lgn">Preview: only your own translations show here. Automatic translation works on your published website.</div>':'')+'</div>';
 const b=w.querySelector('.lgb'),m=w.querySelector('.lgl');b.onclick=e=>{e.stopPropagation();const o=m.hidden;ps.forEach(p=>{p.querySelector('.lgl').hidden=true;p.querySelector('.lgb').setAttribute('aria-expanded','false')});m.hidden=!o;b.setAttribute('aria-expanded',o?'true':'false')};
-m.onclick=e=>{const i=e.target.closest('button[data-l]');if(!i)return;m.hidden=true;b.setAttribute('aria-expanded','false');apply(i.dataset.l)};return w};
+m.onclick=e=>{const i=e.target.closest('button[data-l]');if(!i)return;m.hidden=true;b.setAttribute('aria-expanded','false');b.blur();apply(i.dataset.l)};return w};
 st.querySelectorAll('.nv nav').forEach(n=>{const w=mk();n.appendChild(w);ps.push(w)});mark(D);
 const out=e=>{if(!e.target.closest||!e.target.closest('.lgp'))ps.forEach(p=>{p.querySelector('.lgl').hidden=true;p.querySelector('.lgb').setAttribute('aria-expanded','false')})},esc=e=>{if(e.key=='Escape')out({target:document})};
 document.addEventListener('click',out);document.addEventListener('keydown',esc);
