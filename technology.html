@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Technology: bare-metal servers, order flow and options data | Sparks Vegeance</title>
-<meta name="description" content="How Sparks Vegeance turns futures order flow and CBOE options data into CX1 execution signals on in-house bare-metal servers with redundancy, monitoring and encryption.">
+<meta name="description" content="How Sparks Vegeance turns futures order flow and CBOE options data into CX1 execution signals on in-house bare-metal servers with redundancy, a live in-house server health monitor, a hybrid firewall and encryption.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://sparks.stream/technology.html">
 <meta name="theme-color" content="#ffffff">
@@ -12,14 +12,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sparks Vegeance">
 <meta property="og:title" content="Technology: bare-metal servers, order flow and options data | Sparks Vegeance">
-<meta property="og:description" content="How Sparks Vegeance turns futures order flow and CBOE options data into CX1 execution signals on in-house bare-metal servers with redundancy, monitoring and encryption.">
+<meta property="og:description" content="How Sparks Vegeance turns futures order flow and CBOE options data into CX1 execution signals on in-house bare-metal servers with redundancy, a live in-house server health monitor, a hybrid firewall and encryption.">
 <meta property="og:url" content="https://sparks.stream/technology.html">
 <meta property="og:image" content="https://sparks.stream/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Technology: bare-metal servers, order flow and options data | Sparks Vegeance">
-<meta name="twitter:description" content="How Sparks Vegeance turns futures order flow and CBOE options data into CX1 execution signals on in-house bare-metal servers with redundancy, monitoring and encryption.">
+<meta name="twitter:description" content="How Sparks Vegeance turns futures order flow and CBOE options data into CX1 execution signals on in-house bare-metal servers with redundancy, a live in-house server health monitor, a hybrid firewall and encryption.">
 <meta name="twitter:image" content="https://sparks.stream/assets/img/og-image.jpg">
 <link rel="preload" href="assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -77,6 +77,29 @@
 <p class="sub" style="margin-inline:0">Sparks Vegeance runs on custom micro-servers assembled and maintained in-house. Without a virtualised cloud layer, all of the processing power goes to market data.</p>
 <ul style="color:var(--ink2);padding-left:20px"><li><b>Dedicated CPU power:</b> no hypervisor, no throttling</li><li><b>Isolated hardware threads:</b> data and execution pipelines run on separate physical cores</li><li><b>Direct network routing:</b> low-overhead sockets to broker endpoints</li><li><b>Full ownership:</b> hardware, operating systems and security layers are ours</li></ul></div>
 </div></div></section>
+
+<section class="sec bg"><div class="wrap">
+<div class="left"><h2>Our own server health monitor</h2><p class="sub">We did not buy a monitoring product. The Sparks Vegeance team built its own, so the people who run the servers see exactly what matters to them, in one place.</p></div>
+<figure class="fig"><img class="shot" src="assets/img/server-health.jpg" width="1583" height="302" alt="The Sparks Vegeance server health dashboard showing processor load and temperature, memory use and free space on the server and backup drives" loading="lazy"><figcaption>The live server health panel from our admin console: processor, memory and storage with temperatures.</figcaption></figure>
+<div class="cards four">
+<details class="card"><summary><h3>Processor and memory</h3><p>Live load, memory in use and temperature readings with a fan indicator.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>The panel shows how hard the processor is working and how much memory is free. The fan icon turns red when a component runs hot, and the temperature limits can be set by our team.</p></div></details>
+<details class="card"><summary><h3>Storage and backups</h3><p>Free space on the server drive and on the separate backup drive.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>We watch both drives, so a filling disk is noticed long before it can stop the copier. The panel also shows when the last encrypted backup ran and whether it succeeded.</p></div></details>
+<details class="card"><summary><h3>Refreshed every few seconds</h3><p>A live picture, not a daily report.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>Readings update about every four seconds, so a heat or load problem shows up while it is happening and not the next morning.</p></div></details>
+<details class="card"><summary><h3>Speed under our control</h3><p>Server speed settings are tracked, too.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>The same page shows whether the PHP speed cache is on, so we know the portal and the copier requests are running as fast as the hardware allows.</p></div></details>
+</div></div></section>
+
+<section class="sec bg"><div class="wrap">
+<div class="row rev">
+<div><h2>A hybrid firewall, built by the Sparks team</h2>
+<p class="sub" style="margin-inline:0">Cloudflare stops most attacks at the edge, before they reach us. Behind it, our own firewall on the server catches what gets past, and learns from every attempt. Two layers, one admin console.</p>
+<ul style="color:var(--ink2);padding-left:20px;margin:0 0 20px"><li><b>Attack patterns:</b> SQL and script injection, path tricks, code injection and hacking tools are refused.</li><li><b>Address and device together:</b> a blocked visitor cannot return by switching network or clearing cookies.</li><li><b>Automatic suspensions:</b> repeated wrong passwords, or too many accounts opened from one address, suspend that connection for a set time, then lift by themselves.</li><li><b>Country rules and trusted addresses:</b> the staff portal can be limited to the Philippines, and trusted addresses are never blocked.</li><li><b>Clear, kind block page:</b> an honest mistake is easy to fix, with one-click unblock for our team.</li></ul>
+<p style="color:var(--ink2)">Every setting is a number we can tune from the console, with a full log of what was blocked and why.</p></div>
+<img class="shot" src="assets/img/hybrid-firewall.jpg" width="793" height="595" alt="The protection settings of the Sparks Vegeance hybrid firewall: attack patterns, staff portal country rule and device blocking" loading="lazy">
+</div></div></section>
+
+<section class="sec bg"><div class="wrap">
+<div class="left"><h2>Always moving forward</h2><p class="sub">Both tools are written in-house and improve with every release. Recent additions include automatic suspension of repeated sign-in failures, email confirmation with trusted email providers for new accounts, and limits on bulk sign-ups. Because we run our own servers and our own software, we can respond to a new threat or a new need in days, not quarters.</p></div>
+</div></section>
 
 <section class="sec bg"><div class="wrap">
 <div class="left"><h2>Reliability and security</h2></div>
