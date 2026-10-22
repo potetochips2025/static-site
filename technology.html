@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Technology: bare-metal servers, order flow and options data | SPARKS</title>
+<meta name="description" content="How SPARKS turns futures order flow and CBOE options data into CX1 execution signals on in-house bare-metal servers with redundancy, monitoring and encryption.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://sparks.stream/technology.html">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SPARKS">
+<meta property="og:title" content="Technology: bare-metal servers, order flow and options data | SPARKS">
+<meta property="og:description" content="How SPARKS turns futures order flow and CBOE options data into CX1 execution signals on in-house bare-metal servers with redundancy, monitoring and encryption.">
+<meta property="og:url" content="https://sparks.stream/technology.html">
+<meta property="og:image" content="https://sparks.stream/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technology: bare-metal servers, order flow and options data | SPARKS">
+<meta name="twitter:description" content="How SPARKS turns futures order flow and CBOE options data into CX1 execution signals on in-house bare-metal servers with redundancy, monitoring and encryption.">
+<meta name="twitter:image" content="https://sparks.stream/assets/img/og-image.jpg">
+<link rel="preload" href="assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://sparks.stream/#org", "name": "SPARKS", "alternateName": "Spark Vegeance", "url": "https://sparks.stream/", "logo": "https://sparks.stream/assets/img/favicon.svg", "email": "webmaster@sparks.stream", "sameAs": ["https://discord.gg/RXwKEGaGU"], "description": "SPARKS is an independent trading technology and research project that builds the CX1 trade copier for MetaTrader 5."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://sparks.stream/#site", "url": "https://sparks.stream/", "name": "SPARKS", "publisher": {"@id": "https://sparks.stream/#org"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparks.stream/"}, {"@type": "ListItem", "position": 2, "name": "Technology", "item": "https://sparks.stream/technology.html"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap bar">
+<a class="logo" href="index.html" aria-label="Spark Vegeance home"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="6" fill="#081640"/><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="#19E3B1"/></svg><span>SPARK VEGEANCE</span></a>
+<nav class="nav" aria-label="Main"><ul><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><a href="products.html#plans">Plans</a></li><li class="has-menu"><a href="support.html" aria-haspopup="true">Resources <svg class="chev" viewBox="0 0 12 8" aria-hidden="true" width="12" height="8"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a><div class="dd" role="group" aria-label="Resources"><div class="col"><h3>Learn</h3><a href="technology.html" aria-current="page">Technology</a><a href="philosophy.html">Philosophy</a><a href="products.html#plans">Plans and pricing</a><a href="products.html#install">Install guide</a></div><div class="col"><h3>Support</h3><a href="support.html">Help centre</a><a href="contact.html">Contact us</a><a href="https://discord.gg/RXwKEGaGU" rel="noopener">Discord community</a><a href="https://client.vegeance.online" rel="noopener">Client portal</a></div><div class="col"><h3>Company</h3><a href="about.html">About us</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a><a href="refund.html">Refund Policy</a></div></div></li></ul></nav>
+<a class="pill" href="https://client.vegeance.online" rel="noopener">Client portal</a>
+<details class="menu"><summary>Menu</summary><div class="menu-panel"><h3>Menu</h3><a href="index.html">Home</a><a href="products.html">Products</a><a href="products.html#plans">Plans</a><h3>Learn</h3><a href="technology.html" aria-current="page">Technology</a><a href="philosophy.html">Philosophy</a><a href="products.html#plans">Plans and pricing</a><a href="products.html#install">Install guide</a><h3>Support</h3><a href="support.html">Help centre</a><a href="contact.html">Contact us</a><a href="https://discord.gg/RXwKEGaGU" rel="noopener">Discord community</a><a href="https://client.vegeance.online" rel="noopener">Client portal</a><h3>Company</h3><a href="about.html">About us</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a><a href="refund.html">Refund Policy</a><a class="cta" href="https://client.vegeance.online" rel="noopener">Client portal</a></div></details>
+</div></header>
+<main id="main">
+<section class="page-hero"><div class="wrap">
+<p class="crumb"><a href="index.html">Home</a> / Technology</p>
+<h1>Infrastructure built for precision execution</h1><p class="lead">From raw market data to a trade on your MT5 chart in milliseconds, on hardware we own and operate.</p></div></section>
+<section class="sec bg"><div class="wrap">
+<div class="left"><h2>From raw data to automated decisions</h2><p class="sub">The SPARKS server continuously processes institutional market feeds in real time, combining order flow and CBOE options dynamics into execution signals for CX1.</p></div>
+<figure class="fig"><svg class="diagram" viewBox="0 0 1100 300" role="img" aria-label="Diagram: futures order flow and CBOE options data go to the SPARKS server, which filters them and sends signals to the CX1 Expert Advisor in MetaTrader 5, which trades on your broker account"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0b0d12"/></marker></defs><rect x="10" y="40" width="230" height="80" rx="16" fill="#f2f5f6" stroke="#dfe5e8"/><text x="125.0" y="76.0" text-anchor="middle" font-family="Outfit,system-ui,sans-serif" font-weight="600" font-size="18" fill="#0b0d12">Futures order flow</text><text x="125.0" y="98.0" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#5d6676">tick-level volume and delta</text><rect x="10" y="180" width="230" height="80" rx="16" fill="#f2f5f6" stroke="#dfe5e8"/><text x="125.0" y="216.0" text-anchor="middle" font-family="Outfit,system-ui,sans-serif" font-weight="600" font-size="18" fill="#0b0d12">CBOE options data</text><text x="125.0" y="238.0" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#5d6676">flow, open interest, GEX</text><path d="M240 80L330 140" stroke="#0b0d12" stroke-width="2" fill="none" marker-end="url(#ah)"/><path d="M240 220L330 160" stroke="#0b0d12" stroke-width="2" fill="none" marker-end="url(#ah)"/><rect x="330" y="90" width="250" height="120" rx="16" fill="#3b3fb0" stroke="#dfe5e8"/><text x="455.0" y="146.0" text-anchor="middle" font-family="Outfit,system-ui,sans-serif" font-weight="600" font-size="18" fill="#ffffff">SPARKS server</text><text x="455.0" y="168.0" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#eef0ff">filters noise, builds signals</text><path d="M580 150L650 150" stroke="#0b0d12" stroke-width="2" fill="none" marker-end="url(#ah)"/><rect x="650" y="90" width="200" height="120" rx="16" fill="#007d98" stroke="#dfe5e8"/><text x="750.0" y="146.0" text-anchor="middle" font-family="Outfit,system-ui,sans-serif" font-weight="600" font-size="18" fill="#ffffff">CX1 EA</text><text x="750.0" y="168.0" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#eef0ff">inside your MT5</text><path d="M850 150L910 150" stroke="#0b0d12" stroke-width="2" fill="none" marker-end="url(#ah)"/><rect x="910" y="90" width="180" height="120" rx="16" fill="#f2f5f6" stroke="#dfe5e8"/><text x="1000.0" y="146.0" text-anchor="middle" font-family="Outfit,system-ui,sans-serif" font-weight="600" font-size="18" fill="#0b0d12">Your broker</text><text x="1000.0" y="168.0" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#5d6676">your own account</text></svg><figcaption>The path of one signal, from market data to your account.</figcaption></figure>
+<div class="cards">
+<details class="card"><summary><h3>Tick-level tracking</h3><p>Live futures volume and aggressor trades, tick by tick.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>The server tracks institutional futures volume and aggressor trades at the tick level, bypassing the data limits of a standard MT5 feed.</p></div></details>
+<details class="card"><summary><h3>Noise and spoof filtering</h3><p>Manipulative or thin moves are removed before they become a signal.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>High-speed algorithms evaluate delta pressure and filter out spoofing and low-liquidity noise before any execution parameters are produced.</p></div></details>
+<details class="card"><summary><h3>Dynamic liquidity mapping</h3><p>Resting orders and order book shifts mapped as price moves.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>Key liquidity pools, large resting limit orders and immediate order book changes are mapped dynamically as trading unfolds.</p></div></details>
+</div></div></section>
+
+<section class="sec bg"><div class="wrap">
+<div class="row"><div class="left"><h2>Options positioning</h2><p class="sub" style="margin-bottom:0">The server watches CBOE options activity in real time to read institutional positioning and sentiment.</p></div>
+<figure class="fig" style="margin:0"><svg class="diagram" viewBox="0 0 700 340" role="img" aria-label="Illustration of a gamma exposure profile by strike price: negative values on the left, positive on the right"><line x1="40" y1="170" x2="690" y2="170" stroke="#9aa3b2" stroke-width="1"/><rect x="52" y="170" width="30" height="50" rx="4" fill="#7a14a8"/><text x="67" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5300</text><rect x="97" y="170" width="30" height="82" rx="4" fill="#7a14a8"/><text x="112" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5340</text><rect x="142" y="170" width="30" height="110" rx="4" fill="#7a14a8"/><text x="157" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5380</text><rect x="187" y="170" width="30" height="74" rx="4" fill="#7a14a8"/><text x="202" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5420</text><rect x="232" y="170" width="30" height="38" rx="4" fill="#7a14a8"/><text x="247" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5460</text><rect x="277" y="170" width="30" height="12" rx="4" fill="#7a14a8"/><text x="292" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5500</text><rect x="322" y="141" width="30" height="29" rx="4" fill="#00a3c4"/><text x="337" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5540</text><rect x="367" y="103" width="30" height="67" rx="4" fill="#00a3c4"/><text x="382" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5580</text><rect x="412" y="64" width="30" height="106" rx="4" fill="#00a3c4"/><text x="427" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5620</text><rect x="457" y="36" width="30" height="134" rx="4" fill="#00a3c4"/><text x="472" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5660</text><rect x="502" y="72" width="30" height="98" rx="4" fill="#00a3c4"/><text x="517" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5700</text><rect x="547" y="108" width="30" height="62" rx="4" fill="#00a3c4"/><text x="562" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5740</text><rect x="592" y="136" width="30" height="34" rx="4" fill="#00a3c4"/><text x="607" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5780</text><rect x="637" y="153" width="30" height="17" rx="4" fill="#00a3c4"/><text x="652" y="320" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">5820</text><text x="40" y="22" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#3a4150">Gamma exposure by strike ($B), illustration only</text><text x="52" y="338" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#5d6676">Strike</text></svg><figcaption>Illustration of a gamma exposure profile. Example values, not live data.</figcaption></figure></div>
+<div style="height:48px"></div>
+<div class="cards four">
+<div class="card"><h3>Smart money flow</h3><p>Options volume, unusual sweeps, block trades and open interest changes.</p></div>
+<div class="card"><h3>Structural gamma mapping</h3><p>Gamma exposure (GEX), zero-gamma flips and heavy call and put strike walls.</p></div>
+<div class="card"><h3>Dynamic hedging zones</h3><p>Where market makers are forced to hedge: support, resistance and volatility triggers.</p></div>
+<div class="card"><h3>Institutional edge</h3><p>An overlay that shows commitment before price moves.</p></div>
+</div></div></section>
+
+<section class="sec bg"><div class="wrap">
+<div class="left"><h2>Data dispatch and risk</h2><p class="sub">Processed levels and flow bias are fed to CX1 for execution on MT5, with risk worked out per trade.</p></div>
+<div class="cards four">
+<div class="card"><h3>Data dispatch to CX1</h3><p>Processed GEX levels and option flow bias go straight to the EA.</p></div>
+<div class="card"><h3>Real-time risk calculation</h3><p>Risk per trade from account equity, live volatility and structural invalidation levels.</p></div>
+<div class="card"><h3>Adaptive sizing</h3><p>Position size follows ATR and liquidity depth in real time.</p></div>
+<div class="card"><h3>Capital preservation</h3><p>Daily loss stops and maximum drawdown limits are enforced; trailing stops and partial profits adjust as price moves.</p></div>
+</div></div></section>
+
+<section class="sec bg"><div class="wrap">
+<div class="row">
+<img src="assets/img/network-switch.jpg" width="1000" height="253" alt="Network switch used in the SPARKS in-house server rack" loading="lazy">
+<div class="left"><h2>Bare-metal, not cloud</h2>
+<p class="sub" style="margin-inline:0">SPARKS runs on custom micro-servers assembled and maintained in-house. Without a virtualised cloud layer, all of the processing power goes to market data.</p>
+<ul style="color:var(--ink2);padding-left:20px"><li><b>Dedicated CPU power:</b> no hypervisor, no throttling</li><li><b>Isolated hardware threads:</b> data and execution pipelines run on separate physical cores</li><li><b>Direct network routing:</b> low-overhead sockets to broker endpoints</li><li><b>Full ownership:</b> hardware, operating systems and security layers are ours</li></ul></div>
+</div></div></section>
+
+<section class="sec bg"><div class="wrap">
+<div class="left"><h2>Reliability and security</h2></div>
+<div class="cards four">
+<div class="card"><h3>Power and network redundancy</h3><p>Local UPS battery units, failover connections and dual ISP paths for continuous uptime.</p></div>
+<div class="card"><h3>Continuous monitoring</h3><p>Health checks watch feed integrity, socket latency, packet loss and endpoint connectivity around the clock.</p></div>
+<div class="card"><h3>Instant alerts</h3><p>Server telemetry and diagnostic alerts are sent to monitoring dashboards and notifications.</p></div>
+<div class="card"><h3>Encrypted and backed up</h3><p>Strategy logs, parameters and local feeds are protected by encrypted connections and automatic backups.</p></div>
+</div>
+<p class="note">Modular by design: the framework can expand across futures, options and several MT5 broker endpoints without a rebuild.</p>
+</div></section>
+
+</main>
+<footer class="foot"><div class="wrap">
+<div class="fgrid">
+<div><h4>Products</h4><ul><li><a href="products.html">CX1 trade copier</a></li><li><a href="products.html#plans">Plans</a></li><li><a href="products.html#portal">Client portal</a></li><li><a href="products.html#install">Install guide</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="technology.html">Technology</a></li><li><a href="philosophy.html">Philosophy &amp; methodology</a></li><li><a href="about.html">About us</a></li><li><a href="support.html">Support</a></li><li><a href="contact.html">Contact us</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="terms.html">Terms of Service</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="refund.html">Refund Policy</a></li><li><a href="cookies.html">Cookie Policy</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="mailto:webmaster@sparks.stream">webmaster@sparks.stream</a></li><li><a href="contact.html">Contact page</a></li><li><a href="https://discord.gg/RXwKEGaGU" rel="noopener">Discord community</a></li><li><a href="https://client.vegeance.online" rel="noopener">Client portal</a></li></ul></div>
+</div>
+<div class="risk"><strong>Risk warning &amp; disclaimer</strong>
+<p>Trading futures, options, and foreign exchange derivatives carries significant financial risks and is not suitable for all investors. You could lose a substantial portion or all of your invested capital. The SPARKS server infrastructure and the CX1 Expert Advisor (EA) provide automated data feeds and execution parameters; they do not guarantee profits or prevent trading losses. Past performance of any algorithm or historical data feed is no indication of future performance.</p>
+<p>The information provided on this website is general in nature and does not constitute personalized financial, investment, or trading advice. It does not take into account your individual financial situation, risk tolerance, or trading objectives. Before using our server feeds or executing trades with CX1 on MetaTrader 5, evaluate whether systematic trading suits your personal circumstances and seek independent professional financial advice if necessary. Make sure you understand the operational, execution, and market risks involved before making any live trading decisions.</p></div>
+<div class="legal"><span>&copy; 2026 SPARKS. All rights reserved.</span><ul><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="refund.html">Refunds</a></li><li><a href="cookies.html">Cookies</a></li><li><a href="sitemap.xml">Sitemap</a></li></ul></div>
+</div></footer>
+<script src="assets/count.js" defer></script>
+</body>
+</html>
