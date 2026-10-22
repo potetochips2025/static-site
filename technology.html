@@ -78,27 +78,64 @@
 <ul style="color:var(--ink2);padding-left:20px"><li><b>Dedicated CPU power:</b> no hypervisor, no throttling</li><li><b>Isolated hardware threads:</b> data and execution pipelines run on separate physical cores</li><li><b>Direct network routing:</b> low-overhead sockets to broker endpoints</li><li><b>Full ownership:</b> hardware, operating systems and security layers are ours</li></ul></div>
 </div></div></section>
 
+<style>
+.hm{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.hm .u{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:22px 24px;min-height:150px}
+.hm .u .t{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hm .u h3{font-size:19px;margin:0}
+.hm .u small{display:block;color:var(--mute);font-size:13px;margin-top:2px}
+.hm .meter{height:9px;border-radius:9px;background:#dde4e8;margin:26px 0 10px;overflow:hidden}
+.hm .meter i{display:block;height:100%;border-radius:9px;background:#1d4ed8}
+.hm .u p{margin:0;font-size:13px;color:var(--ink2)}
+.fan{width:40px;height:40px;flex:none}
+.fan .blades{transform-origin:20px 20px;animation:fanspin 1.1s linear infinite}
+@keyframes fanspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.fan .blades{animation:none}}
+.hm-note{text-align:center;font-size:14px;color:var(--mute);margin:14px 0 0}
+.tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+.tcards .c{background:var(--soft);border-radius:var(--r);padding:28px 30px;display:flex;flex-direction:column;gap:12px}
+.tcards h3{font-size:22px;line-height:1.2;margin:0}
+.tcards p{margin:0;color:var(--ink2);font-size:16px}
+.fw{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.fw>*{min-width:0}
+.fw h2{max-width:16ch;margin:0 0 16px}
+.fw .lead{color:var(--ink2);font-size:19px;margin:0 0 24px}
+.fw dl{margin:0;padding:0}
+.fw dt{font:600 17px/1.3 var(--head);margin:0 0 4px}
+.fw dd{margin:0 0 18px;color:var(--ink2);font-size:16px}
+.fw .soon{display:inline-block;margin-top:6px;padding:8px 16px;border-radius:999px;background:var(--ink);color:#fff;font-size:14px;font-weight:500}
+.fwd{width:100%;height:auto;display:block}
+@media (max-width:900px){.hm,.tcards{grid-template-columns:1fr}.fw{grid-template-columns:1fr;gap:32px}}
+</style>
+
 <section class="sec bg"><div class="wrap">
-<div class="left"><h2>Our own server health monitor</h2><p class="sub">We did not buy a monitoring product. The Sparks Vegeance team built its own, so the people who run the servers see exactly what matters to them, in one place.</p></div>
-<figure class="fig"><img class="shot" src="assets/img/server-health.jpg" width="1583" height="302" alt="The Sparks Vegeance server health dashboard showing processor load and temperature, memory use and free space on the server and backup drives" loading="lazy"><figcaption>The live server health panel from our admin console: processor, memory and storage with temperatures.</figcaption></figure>
-<div class="cards four">
-<details class="card"><summary><h3>Processor and memory</h3><p>Live load, memory in use and temperature readings with a fan indicator.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>The panel shows how hard the processor is working and how much memory is free. The fan icon turns red when a component runs hot, and the temperature limits can be set by our team.</p></div></details>
-<details class="card"><summary><h3>Storage and backups</h3><p>Free space on the server drive and on the separate backup drive.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>We watch both drives, so a filling disk is noticed long before it can stop the copier. The panel also shows when the last encrypted backup ran and whether it succeeded.</p></div></details>
-<details class="card"><summary><h3>Refreshed every few seconds</h3><p>A live picture, not a daily report.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>Readings update about every four seconds, so a heat or load problem shows up while it is happening and not the next morning.</p></div></details>
-<details class="card"><summary><h3>Speed under our control</h3><p>Server speed settings are tracked, too.</p><span class="tog"><i></i>Expand</span></summary><div class="body"><p>The same page shows whether the PHP speed cache is on, so we know the portal and the copier requests are running as fast as the hardware allows.</p></div></details>
+<div class="left"><h2>Our own server health monitor</h2><p class="sub">Not an off-the-shelf product. The Sparks Vegeance team engineered a proprietary telemetry layer that keeps every part of the server under continuous observation.</p></div>
+<div class="hm">
+<div class="u"><div class="t"><div><h3>Processor</h3><small>Load and temperature</small></div><svg class="fan" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#d9f5f0"/><g class="blades"><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(0 20 20)"/><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(90 20 20)"/><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(180 20 20)"/><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(270 20 20)"/></g><circle cx="20" cy="20" r="3.2" fill="#fff"/></svg></div><div class="meter"><i style="width:12%"></i></div><p>Within normal range</p></div><div class="u"><div class="t"><div><h3>Memory</h3><small>Usage and pressure</small></div><svg class="fan" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#d9f5f0"/><g class="blades"><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(0 20 20)"/><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(90 20 20)"/><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(180 20 20)"/><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(270 20 20)"/></g><circle cx="20" cy="20" r="3.2" fill="#fff"/></svg></div><div class="meter"><i style="width:38%"></i></div><p>Within normal range</p></div><div class="u"><div class="t"><div><h3>Storage</h3><small>Capacity and health</small></div><svg class="fan" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#d9f5f0"/><g class="blades"><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(0 20 20)"/><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(90 20 20)"/><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(180 20 20)"/><path d="M20 20 C 14 12, 17 4, 20 3 C 25 5, 26 13, 20 20 Z" fill="#14b8a6" transform="rotate(270 20 20)"/></g><circle cx="20" cy="20" r="3.2" fill="#fff"/></svg></div><div class="meter"><i style="width:45%"></i></div><p>Within normal range</p></div>
+</div>
+<p class="hm-note">Illustration of the live panel. Example values, not live data.</p>
+<div class="tcards">
+<div class="c"><h3>Continuous telemetry</h3><p>Hardware state is sampled in near real time and evaluated against thresholds we define, so drift is caught while it is still small.</p></div>
+<div class="c"><h3>Thermal awareness</h3><p>Cooling behaviour is tracked alongside load, giving the team an early signal long before performance is affected.</p></div>
+<div class="c"><h3>Built around our stack</h3><p>Because we wrote it for our own servers, it measures what matters to our workload and nothing that does not.</p></div>
 </div></div></section>
 
 <section class="sec bg"><div class="wrap">
-<div class="row rev">
-<div><h2>A hybrid firewall, built by the Sparks team</h2>
-<p class="sub" style="margin-inline:0">Cloudflare stops most attacks at the edge, before they reach us. Behind it, our own firewall on the server catches what gets past, and learns from every attempt. Two layers, one admin console.</p>
-<ul style="color:var(--ink2);padding-left:20px;margin:0 0 20px"><li><b>Attack patterns:</b> SQL and script injection, path tricks, code injection and hacking tools are refused.</li><li><b>Address and device together:</b> a blocked visitor cannot return by switching network or clearing cookies.</li><li><b>Automatic suspensions:</b> repeated wrong passwords, or too many accounts opened from one address, suspend that connection for a set time, then lift by themselves.</li><li><b>Country rules and trusted addresses:</b> the staff portal can be limited to the Philippines, and trusted addresses are never blocked.</li><li><b>Clear, kind block page:</b> an honest mistake is easy to fix, with one-click unblock for our team.</li></ul>
-<p style="color:var(--ink2)">Every setting is a number we can tune from the console, with a full log of what was blocked and why.</p></div>
-<img class="shot" src="assets/img/hybrid-firewall.jpg" width="793" height="595" alt="The protection settings of the Sparks Vegeance hybrid firewall: attack patterns, staff portal country rule and device blocking" loading="lazy">
+<div class="fw">
+<div><h2>Sparks Hybrid Firewall</h2>
+<p class="lead">A two-layer defence engineered in-house: a global edge in front, an adaptive engine of our own behind it. Soon to be offered as a product of its own.</p>
+<dl>
+<dt>Layered by design</dt><dd>Hostile traffic is filtered at the edge. What remains is judged again by an engine that sits next to the application and understands it.</dd>
+<dt>Adaptive intelligence</dt><dd>Every attempt teaches the system. Responses are graduated and automatic, and they resolve themselves without anyone on call.</dd>
+<dt>Identity beyond the address</dt><dd>Enforcement follows the visitor rather than a single connection, so a change of network does not reset the outcome.</dd>
+<dt>One command surface</dt><dd>Policy, evidence and recovery live in a single console, with a complete audit trail behind every decision.</dd>
+</dl>
+<span class="soon">Coming soon as a standalone product</span></div>
+<svg class="fwd" viewBox="0 0 500 440" role="img" aria-label="Diagram: traffic passes an edge layer, then the Sparks adaptive engine, then reaches the application, all managed from one console"><rect x="20" y="10" width="460" height="70" rx="18" fill="#f2f5f6" stroke="#dfe5e8"/><text x="250" y="42.0" text-anchor="middle" font-family="Outfit,system-ui,sans-serif" font-weight="600" font-size="19" fill="#0b0d12">Global edge layer</text><text x="250" y="65.0" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" fill="#0b0d12" opacity=".75">First line of defence</text><path d="M250 82 v18" stroke="#8a97a0" stroke-width="2"/><path d="M244 94 l6 8 l6 -8" fill="none" stroke="#8a97a0" stroke-width="2"/><rect x="20" y="106" width="460" height="90" rx="18" fill="#1d4ed8" stroke="#1d4ed8"/><text x="250" y="148.0" text-anchor="middle" font-family="Outfit,system-ui,sans-serif" font-weight="600" font-size="19" fill="#ffffff">Sparks adaptive engine</text><text x="250" y="171.0" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" fill="#ffffff" opacity=".75">Learns, decides, resolves</text><path d="M250 198 v18" stroke="#8a97a0" stroke-width="2"/><path d="M244 210 l6 8 l6 -8" fill="none" stroke="#8a97a0" stroke-width="2"/><rect x="20" y="222" width="460" height="70" rx="18" fill="#f2f5f6" stroke="#dfe5e8"/><text x="250" y="254.0" text-anchor="middle" font-family="Outfit,system-ui,sans-serif" font-weight="600" font-size="19" fill="#0b0d12">Protected application</text><text x="250" y="277.0" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" fill="#0b0d12" opacity=".75">Only clean traffic arrives</text><rect x="20" y="328" width="460" height="86" rx="18" fill="none" stroke="#b9c4ca" stroke-dasharray="6 6"/><text x="250" y="366" text-anchor="middle" font-family="Outfit,system-ui,sans-serif" font-weight="600" font-size="19" fill="#0b0d12">Single command console</text><text x="250" y="390" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" fill="#4b5760">Policy, evidence and recovery</text></svg>
 </div></div></section>
 
 <section class="sec bg"><div class="wrap">
-<div class="left"><h2>Always moving forward</h2><p class="sub">Both tools are written in-house and improve with every release. Recent additions include automatic suspension of repeated sign-in failures, email confirmation with trusted email providers for new accounts, and limits on bulk sign-ups. Because we run our own servers and our own software, we can respond to a new threat or a new need in days, not quarters.</p></div>
+<div class="left"><h2>Always moving forward</h2><p class="sub">Both systems are written in-house and refined with every release. Owning the whole stack, from hardware to software, means we answer a new threat or a new need in days, not quarters.</p></div>
 </div></section>
 
 <section class="sec bg"><div class="wrap">
