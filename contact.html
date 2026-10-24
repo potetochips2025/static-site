@@ -24,6 +24,15 @@
 <link rel="preload" href="assets/fonts/outfit-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<style>
+.hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
+.cf-turnstile{margin:6px 0 14px}
+.form-status{margin:12px 0 0;font-size:15px;min-height:1.4em}
+.form-status.ok{color:#0a7a55}
+.form-status.err{color:#b42318}
+.form button[disabled]{opacity:.6;cursor:wait}
+</style>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://sparks.stream/#org", "name": "Sparks Vegeance", "alternateName": "SPARKS", "url": "https://sparks.stream/", "logo": "https://sparks.stream/assets/img/favicon.svg", "email": "webmaster@sparks.stream", "sameAs": ["https://discord.gg/RXwKEGaGU"], "description": "Sparks Vegeance is an independent trading technology and research project that builds the CX1 trade copier for MetaTrader 5."}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://sparks.stream/#site", "url": "https://sparks.stream/", "name": "Sparks Vegeance", "publisher": {"@id": "https://sparks.stream/#org"}}</script>
@@ -50,14 +59,17 @@
 </div></div></section>
 
 <section class="sec bg"><div class="wrap"><div class="row wide">
-<div class="left"><h2>Send us a message</h2><p class="sub" style="margin-inline:0">This form opens your email app with the message filled in, addressed to webmaster@sparks.stream. Include your MT5 account number if you are a client.</p>
+<div class="left"><h2 id="message">Send us a message</h2><p class="sub" style="margin-inline:0">Your message goes straight to our team and we reply by email. Include your MT5 account number if you are a client.</p>
 <img class="shot" src="assets/img/trading-desk.jpg" width="1400" height="526" alt="A trader reviewing market charts" loading="lazy"></div>
-<form class="form" action="mailto:webmaster@sparks.stream" method="post" enctype="text/plain">
+<form class="form" id="contact-form" action="https://forms.sparks.stream/contact" method="post">
 <label for="f-name">Your name</label><input id="f-name" name="Name" type="text" autocomplete="name" required>
 <label for="f-mail">Your email</label><input id="f-mail" name="Email" type="email" autocomplete="email" required>
 <label for="f-topic">Topic</label><select id="f-topic" name="Topic"><option>Installing CX1</option><option>My account or plan</option><option>Billing or refund</option><option>Security</option><option>Something else</option></select>
-<label for="f-msg">Message</label><textarea id="f-msg" name="Message" rows="6" required></textarea>
-<button class="btn dark" type="submit">Write the email</button>
+<label for="f-msg">Message</label><textarea id="f-msg" name="Message" rows="6" minlength="10" maxlength="5000" required></textarea>
+<div class="hp" aria-hidden="true"><label for="f-web">Leave this field empty</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAFjgTkD8Jl_sKL-w"></div>
+<button class="btn dark" type="submit">Send message</button>
+<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
 </form></div></div></section>
 
 <section class="sec bg"><div class="wrap">
@@ -86,5 +98,29 @@
 <div class="legal"><span>&copy; 2026 Sparks Vegeance. All rights reserved.</span><ul><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="refund.html">Refunds</a></li><li><a href="cookies.html">Cookies</a></li><li><a href="sitemap.xml">Sitemap</a></li></ul></div>
 </div></footer>
 <script src="assets/count.js" defer></script>
+<script>
+(function(){
+  var f=document.getElementById('contact-form'), st=document.getElementById('form-status');
+  if(!f) return;
+  var q=new URLSearchParams(location.search).get('sent');
+  if(q==='1'){st.textContent='Thanks, your message has been sent. We will reply by email.';st.className='form-status ok';}
+  if(q==='0'){st.textContent='Sorry, your message could not be sent. Please try again or email webmaster@sparks.stream.';st.className='form-status err';}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=f.querySelector('button[type=submit]');
+    var data=new FormData(f);
+    if(!data.get('cf-turnstile-response')){st.textContent='Please wait a moment for the human check to finish, then send again.';st.className='form-status err';return;}
+    btn.disabled=true; btn.textContent='Sending...'; st.textContent=''; st.className='form-status';
+    fetch(f.action,{method:'POST',body:data,headers:{'Accept':'application/json'}})
+      .then(function(r){return r.json().catch(function(){return {ok:false,message:'Unexpected reply from the server.'};});})
+      .then(function(res){
+        st.textContent=res.message; st.className='form-status '+(res.ok?'ok':'err');
+        if(res.ok) f.reset();
+      })
+      .catch(function(){st.textContent='Network error. Please check your connection and try again.';st.className='form-status err';})
+      .finally(function(){btn.disabled=false; btn.textContent='Send message'; if(window.turnstile) turnstile.reset();});
+  });
+})();
+</script>
 </body>
 </html>
