@@ -52,7 +52,7 @@
 /* Portal notice: while the client and staff portals are offline for the server upgrade,
    any link to them opens this message instead. To switch it off later, set PORTAL_NOTICE to false. */
 (function () {
-  var PORTAL_NOTICE = true;
+  var PORTAL_NOTICE = false;
   if (!PORTAL_NOTICE) return;
   var hosts = /^https?:\/\/(client|staff)\.vegeance\.online/i;
   var dlg = null, lastFocus = null;
