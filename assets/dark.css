@@ -1,0 +1,65 @@
+/* Dark theme for the inner pages (About us, Contact) so they match the new home page:
+   black background, thin white headlines, the same top bar, orange buttons, gradient accent. */
+body.dk{background:#000;color:#e6e6e6}
+body.dk main::before{display:none}
+body.dk .wrap{width:auto;max-width:none;margin:0;padding-inline:clamp(18px,2.6vw,36px)}
+body.dk main a:not(.btn){color:#f4a46e}
+body.dk main a:not(.btn):hover{color:#ffc196}
+body.dk .foot a{color:#e6e6e6}
+body.dk .foot a:hover{color:#fff}
+body.dk :focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* top bar (same markup and look as the home page) */
+.dk-bar{position:relative;z-index:5}
+.dk-bar .gx-top{padding:22px clamp(18px,2.6vw,36px)}
+
+/* headings */
+body.dk h1,body.dk h2,body.dk h3,body.dk h4{color:#fff;font-family:var(--body);letter-spacing:-.03em}
+body.dk .page-hero{background:none;padding:clamp(48px,9vh,100px) 0 clamp(40px,7vh,80px)}
+body.dk .page-hero h1{font-weight:300;font-size:clamp(40px,5.2vw,76px);line-height:1.04;max-width:16ch;margin-bottom:22px}
+body.dk .page-hero p.lead{color:#b4b4b4;font-size:clamp(17px,1.4vw,20px);max-width:40em}
+body.dk .crumb,body.dk .crumb a{color:#7d7d7d}
+body.dk .sec h2{font-weight:300;font-size:clamp(30px,3.6vw,50px);line-height:1.08}
+body.dk .sec .sub,body.dk .sub{color:#a9a9a9}
+body.dk .left h2,body.dk .left .sub{margin-inline:0}
+
+/* a thin gradient rule under the page title, the same colours as the big "Sparks" */
+body.dk .page-hero .wrap::after{content:"";display:block;width:120px;height:3px;margin-top:34px;border-radius:2px;background:linear-gradient(90deg,#7b2ff7,#f107a3,#ff8a00)}
+
+/* cards */
+body.dk .card{background:#0c0c0c;border:1px solid #1f1f1f;border-radius:14px}
+body.dk .card h3{font-weight:400;font-size:22px}
+body.dk .card p,body.dk .card li{color:#a3a3a3}
+body.dk .card p.lnk a,body.dk .contact a{color:#f4a46e}
+body.dk .card .tog i{background:#fff;color:#000}
+
+/* team */
+body.dk .person{background:#0c0c0c;border:1px solid #1f1f1f;border-radius:14px}
+body.dk .person img{filter:grayscale(.15) contrast(1.05);border:1px solid #1f1f1f}
+body.dk .person h3{font-weight:500}
+body.dk .person p{color:#8f8f8f}
+
+/* buttons: white, orange and outline, squarer like the home page */
+body.dk .btn{border-radius:6px;min-height:50px;font-weight:500;font-size:15px}
+body.dk .btn.light{background:#fff;color:#111}
+body.dk .btn.light:hover{background:#e6e6e6;color:#111}
+body.dk .btn.dark{background:#d9682e;color:#fff}
+body.dk .btn.dark:hover{background:#c25722;color:#fff}
+body.dk .btn.line{border-color:#4a4a4a;color:#fff;background:transparent}
+body.dk .btn.line:hover{background:#fff;color:#111}
+body.dk .btn.dash::before{background:currentColor}
+
+/* closing banner: gradient panel */
+body.dk .banner{background:linear-gradient(110deg,#3b1676 0%,#7a0e57 55%,#7a3a07 100%);border-radius:14px;color:#fff}
+body.dk .banner p{color:#f1e6f0}
+body.dk .banner .btn.line{border-color:rgba(255,255,255,.8)!important;color:#fff!important}
+
+/* contact form */
+body.dk .form label{color:#d0d0d0;font-weight:500}
+body.dk .form input,body.dk .form select,body.dk .form textarea{background:#0c0c0c;border:1px solid #2c2c2c;color:#fff;border-radius:8px}
+body.dk .form input:focus,body.dk .form select:focus,body.dk .form textarea:focus{border-color:#d9682e;outline:none}
+body.dk .form-status{color:#d0d0d0}
+body.dk .row img.shot{border-color:#1f1f1f}
+
+/* footer lines up with the page edges, like the home page */
+body.dk .foot{border-top:1px solid #151515}
