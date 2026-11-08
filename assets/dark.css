@@ -63,3 +63,17 @@ body.dk .row img.shot{border-color:#1f1f1f}
 
 /* footer lines up with the page edges, like the home page */
 body.dk .foot{border-top:1px solid #151515}
+
+/* policy pages (Terms, Privacy, Refund, Cookies) */
+body.dk .prose{max-width:820px}
+body.dk .prose h2{font-weight:400;font-size:28px}
+body.dk .prose h3{font-weight:500;font-size:21px}
+body.dk .prose p,body.dk .prose li{color:#b8b8b8}
+body.dk .prose strong{color:#fff}
+body.dk .prose .lg-date{color:#7d7d7d}
+body.dk .prose td,body.dk .prose th{border-color:#262626;color:#b8b8b8}
+body.dk .prose th{color:#fff;background:#0c0c0c}
+body.dk .prose .note{background:#0c0c0c;border:1px solid #1f1f1f;border-radius:12px;color:#b8b8b8}
+body.dk main .doc-nav a{color:#cfcfcf}
+body.dk main .doc-nav a:hover{background:#111;color:#fff}
+body.dk main .doc-nav a[aria-current="page"]{background:#fff;color:#111}

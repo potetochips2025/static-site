@@ -45,3 +45,6 @@
   .gx-cta{left:18px;right:18px;bottom:22px}
 }
 @media (prefers-reduced-motion:reduce){.gx-eye{animation:none}}
+
+/* home page footer lines up with the hero edges instead of sitting in a centred column */
+.gx ~ .foot .wrap{width:auto;max-width:none;margin:0;padding-inline:clamp(18px,2.6vw,36px)}
